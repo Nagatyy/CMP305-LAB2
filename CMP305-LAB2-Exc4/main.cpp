@@ -9,8 +9,6 @@ int main() {
     
     std:: cout << evaluatePostFix() << std::endl;
     
-    
-    
     return 0;
 }
 
@@ -35,7 +33,7 @@ float evaluatePostFix(){
             stack.Push(c - int('0'));
             
             while(std::cin.get(c) && isdigit(c)){ // while a digit continues to be followed by another digit
-                multiplier*=10;
+                multiplier = 10;
                 temp = stack.Top();
                 stack.Pop();
                 stack.Push((temp*multiplier + c) - int('0'));
@@ -88,10 +86,9 @@ void operation(StackType& stack, const char& op){
         stack.Push(temp2 - temp);
     else if(op == '*')
         stack.Push(temp2 * temp);
-    else if(op == '/')
+    else if(op == '/')                // ADD / By 0
         stack.Push(temp2 / temp);
     
-    //std::cout << stack.Top() << std::endl;
 }
 
 
